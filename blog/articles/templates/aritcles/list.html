@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Список статей</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .article { margin-bottom: 24px; padding-bottom: 8px; border-bottom: 1px solid #ddd; }
+    .title { font-size: 1.2rem; font-weight: bold; }
+    .meta { color: #666; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <h1>Статьи</h1>
+  {% if articles %}
+    {% for a in articles %}
+      <div class="article">
+        <div class="title"><a href="{{ a.get_absolute_url }}">{{ a.title }}</a></div>
+        <div class="meta">Автор: {{ a.author.username }} — {{ a.created_date }}</div>
+        <p>{{ a.get_excerpt }}</p>
+      </div>
+    {% endfor %}
+  {% else %}
+    <p>Пока статей нет.</p>
+  {% endif %}
+</body>
+</html>

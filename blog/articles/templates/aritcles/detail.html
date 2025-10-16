@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{{ article.title }}</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .meta { color: #666; font-size: 0.9rem; margin-bottom: 12px; }
+  </style>
+</head>
+<body>
+  <a href="{% url 'article_list' %}">&larr; Назад к списку</a>
+  <h1>{{ article.title }}</h1>
+  <div class="meta">Автор: {{ article.author.username }} — {{ article.created_date }}</div>
+  <div class="content">
+    <p>{{ article.text|linebreaks }}</p>
+  </div>
+</body>
+</html>
